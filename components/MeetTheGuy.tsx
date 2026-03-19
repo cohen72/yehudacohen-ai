@@ -6,15 +6,15 @@ import { useRef } from "react";
 const timeline = [
   {
     year: "2024",
-    text: "Discovered AI assistants. Used one exclusively to avoid answering emails. It worked too well.",
+    text: "Discovered AI assistants. Used one to avoid emails. Worked too well.",
   },
   {
     year: "2025",
-    text: "Started setting them up for people. First client paid me $250. I should have charged more.",
+    text: "First client paid $250. Should have charged more.",
   },
   {
     year: "2026",
-    text: "Built this website. Convinced myself I\u2019m a legitimate business. Still have a day job. Working on it.",
+    text: "Built this website. Convinced myself I\u2019m a legitimate business.",
   },
 ];
 
@@ -23,72 +23,66 @@ export default function MeetTheGuy() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 sm:py-32">
-      <div ref={ref} className="max-w-5xl mx-auto px-6">
-        <motion.div
+    <section className="py-24 px-6" ref={ref}>
+      <div className="max-w-4xl mx-auto border-l-4 border-lime pl-8 md:pl-12">
+        <motion.h2
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="max-w-2xl"
+          className="font-serif italic text-[clamp(1.5rem,4vw,3rem)] leading-[1.2] text-white mb-10"
         >
-          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight mb-2">
-            Meet the guy
-          </h2>
-          <p className="text-muted text-sm mb-1">
-            Yehuda Cohen &bull; AI Setup Person &bull; Certified Since 2026
-          </p>
-          <span className="inline-block bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1 rounded-full mb-10 uppercase tracking-wide">
-            Warning: Professional (sort of)
-          </span>
+          &ldquo;I don&rsquo;t fully know what I&rsquo;m doing, but I&rsquo;m
+          doing it confidently and it keeps working.&rdquo;
+        </motion.h2>
 
-          <div className="space-y-5 text-base sm:text-lg leading-relaxed mb-16">
-            <p>Hi. I&apos;m Yehuda.</p>
-            <p>
-              iOS developer by day. AI setup guy by... also day, apparently.
-            </p>
-            <p>
-              Somewhere between watching too many YouTube videos and avoiding
-              real work, I figured out how to set up AI assistants that actually
-              do stuff. My own AI assistant is basically running my life. Now I
-              do it for other people.
-            </p>
-            <p className="text-muted">
-              My day job thinks I&apos;m focused on mobile apps.
-              <br />
-              My therapist doesn&apos;t know about any of this.
-            </p>
-            <p className="italic text-muted border-l-2 border-accent pl-4">
-              &ldquo;I don&apos;t fully know what I&apos;m doing, but I&apos;m
-              doing it confidently and it keeps working.&rdquo;
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Timeline */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.3, duration: 0.6 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="flex flex-wrap items-center gap-3 mb-8"
         >
-          <h3 className="text-xl font-bold mb-8">The Journey</h3>
-          <div className="relative pl-8 border-l-2 border-gray-200 space-y-10">
-            {timeline.map((item, i) => (
-              <motion.div
-                key={item.year}
-                initial={{ opacity: 0, x: -20 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ delay: 0.4 + i * 0.15, duration: 0.4 }}
-                className="relative"
-              >
-                <div className="absolute -left-[25px] top-1.5 w-3 h-3 bg-accent rounded-full" />
-                <span className="text-accent font-bold text-sm uppercase tracking-wide">
-                  {item.year}
-                </span>
-                <p className="text-[#0a0a0a] text-base mt-1">{item.text}</p>
-              </motion.div>
-            ))}
-          </div>
+          <span className="text-white font-bold text-lg">Yehuda Cohen</span>
+          <span className="text-muted">&middot;</span>
+          <span className="text-muted">AI Setup Person</span>
+          <span className="text-muted">&middot;</span>
+          <span className="text-muted">Certified Since 2026</span>
+          <span className="bg-coral text-black text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+            Warning: Professional (sort of)
+          </span>
         </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="text-muted leading-relaxed mb-12 space-y-4"
+        >
+          <p>
+            iOS developer by day. AI setup guy by... also day, apparently.
+          </p>
+          <p>
+            My day job thinks I&rsquo;m focused on mobile apps. My therapist
+            doesn&rsquo;t know about any of this.
+          </p>
+        </motion.div>
+
+        <div className="space-y-8">
+          {timeline.map((item, i) => (
+            <motion.div
+              key={item.year}
+              initial={{ opacity: 0, x: -20 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.4 + i * 0.15 }}
+              className="flex items-start gap-4"
+            >
+              <div className="w-3 h-3 rounded-full bg-lime mt-2 shrink-0" />
+              <div>
+                <span className="text-lime font-bold">{item.year}</span>
+                <span className="text-muted"> &mdash; {item.text}</span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

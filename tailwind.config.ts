@@ -8,13 +8,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        accent: "#2563eb",
-        "accent-hover": "#1d4ed8",
-        surface: "#f5f5f5",
-        muted: "#6b7280",
+        bg: "#0a0a0a",
+        "card-dark": "#161616",
+        lime: "#c8f135",
+        teal: "#5ee7c8",
+        coral: "#ff6b6b",
+        purple: "#c084fc",
+        muted: "#9ca3af",
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
+        serif: ["DM Serif Display", "serif"],
         mono: ["JetBrains Mono", "monospace"],
       },
     },

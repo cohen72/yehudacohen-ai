@@ -5,22 +5,27 @@ import { useRef } from "react";
 
 const testimonials = [
   {
-    quote: "I don\u2019t know what he did but my inbox no longer haunts me.",
-    author: "Satisfied client",
-    note: "(name withheld because I haven\u2019t gotten one yet, but soon\u2122)",
-    initials: "SC",
+    quote:
+      "\u201CI don\u2019t know what he did but my inbox no longer haunts me.\u201D",
+    author: "Client #1",
+    note: "(soon\u2122)",
+    color: "bg-teal",
+    initials: "C1",
   },
   {
-    quote: "10/10 would recommend. Changed my life. Got a promotion. Bought a boat.",
+    quote:
+      "\u201C10/10. Changed my life. Got a promotion. Bought a boat.\u201D",
     author: "Completely fabricated testimonial",
     note: "",
+    color: "bg-coral",
     initials: "CF",
   },
   {
-    quote: "Wait, this is actually real?",
+    quote: "\u201CWait, this is actually real?\u201D",
     author: "You, right now",
     note: "",
-    initials: "YO",
+    color: "bg-purple",
+    initials: "YU",
   },
 ];
 
@@ -29,40 +34,37 @@ export default function Testimonials() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 sm:py-32">
-      <div ref={ref} className="max-w-5xl mx-auto px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-3xl sm:text-5xl font-bold tracking-tight mb-16 text-center"
-        >
-          What people are saying
-        </motion.h2>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {testimonials.map((t, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.1 + i * 0.1, duration: 0.5 }}
-              className="bg-surface rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
-            >
-              <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-xs font-bold text-muted mb-6">
+    <section className="py-24 px-6" ref={ref}>
+      <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+        {testimonials.map((t, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: i * 0.12 }}
+            className="bg-card-dark border border-white/10 rounded-2xl p-8"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <div
+                className={`w-10 h-10 rounded-full ${t.color} flex items-center justify-center text-black text-xs font-bold`}
+              >
                 {t.initials}
               </div>
-              <p className="text-[#0a0a0a] text-base italic leading-relaxed mb-4">
-                &ldquo;{t.quote}&rdquo;
-              </p>
-              <p className="text-sm font-semibold">{t.author}</p>
-              {t.note && (
-                <p className="text-muted text-xs italic">{t.note}</p>
-              )}
-            </motion.div>
-          ))}
-        </div>
+              <div>
+                <p className="text-white text-sm font-medium">{t.author}</p>
+                {t.note && (
+                  <p className="text-muted text-xs">{t.note}</p>
+                )}
+              </div>
+            </div>
+            <p className="text-white/90 text-lg italic">{t.quote}</p>
+          </motion.div>
+        ))}
       </div>
+      <p className="text-muted text-xs italic text-center mt-8">
+        *Testimonials may be slightly embellished. Or entirely made up.
+        You&rsquo;ll never know.
+      </p>
     </section>
   );
 }

@@ -2,7 +2,7 @@
 
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import AsSeenIn from "@/components/AsSeenIn";
+import TickerBand from "@/components/TickerBand";
 import HowItWorks from "@/components/HowItWorks";
 import WhatItDoes from "@/components/WhatItDoes";
 import MeetTheGuy from "@/components/MeetTheGuy";
@@ -17,7 +17,7 @@ export default function Home() {
     <main>
       <Nav />
       <Hero />
-      <AsSeenIn />
+      <TickerBand />
       <section id="how-it-works">
         <HowItWorks />
       </section>

@@ -21,92 +21,78 @@ export default function Nav() {
   }, []);
 
   return (
-    <motion.nav
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5 }}
+    <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/80 backdrop-blur-lg shadow-sm"
-          : "bg-transparent"
+        scrolled ? "bg-bg/80 backdrop-blur-lg" : "bg-transparent"
       }`}
     >
-      <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="font-mono text-sm font-semibold tracking-tight">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="#" className="font-mono text-sm text-white tracking-tight">
           yehudacohen.ai
         </a>
 
-        {/* Desktop links */}
         <div className="hidden md:flex items-center gap-8">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-muted hover:text-[#0a0a0a] transition-colors"
+              className="text-sm text-white/70 hover:text-white transition-colors"
             >
               {link.label}
             </a>
           ))}
           <a
             href="https://cal.com/yehudacohen"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-accent text-white text-sm font-medium px-5 py-2 rounded-full hover:bg-accent-hover transition-colors"
+            className="bg-lime text-black font-bold text-sm rounded-full px-6 py-2.5 hover:brightness-110 hover:scale-105 transition-all"
           >
             Book a call
           </a>
         </div>
 
-        {/* Mobile hamburger */}
         <button
+          className="md:hidden text-white"
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden flex flex-col gap-1.5 p-2"
           aria-label="Toggle menu"
         >
-          <span
-            className={`block w-5 h-0.5 bg-[#0a0a0a] transition-transform ${
-              menuOpen ? "rotate-45 translate-y-2" : ""
-            }`}
-          />
-          <span
-            className={`block w-5 h-0.5 bg-[#0a0a0a] transition-opacity ${
-              menuOpen ? "opacity-0" : ""
-            }`}
-          />
-          <span
-            className={`block w-5 h-0.5 bg-[#0a0a0a] transition-transform ${
-              menuOpen ? "-rotate-45 -translate-y-2" : ""
-            }`}
-          />
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            {menuOpen ? (
+              <path d="M18 6L6 18M6 6l12 12" />
+            ) : (
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
         </button>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden bg-white/95 backdrop-blur-lg border-t border-gray-100 overflow-hidden"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-bg/95 backdrop-blur-lg border-t border-white/10 overflow-hidden"
           >
-            <div className="px-6 py-4 flex flex-col gap-4">
+            <div className="px-6 py-6 flex flex-col gap-4">
               {links.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
+                  className="text-white/70 hover:text-white transition-colors"
                   onClick={() => setMenuOpen(false)}
-                  className="text-sm text-muted hover:text-[#0a0a0a] transition-colors"
                 >
                   {link.label}
                 </a>
               ))}
               <a
                 href="https://cal.com/yehudacohen"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-accent text-white text-sm font-medium px-5 py-2 rounded-full text-center hover:bg-accent-hover transition-colors"
+                className="bg-lime text-black font-bold text-sm rounded-full px-6 py-2.5 text-center hover:brightness-110 transition-all"
               >
                 Book a call
               </a>
@@ -114,6 +100,6 @@ export default function Nav() {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </nav>
   );
 }
