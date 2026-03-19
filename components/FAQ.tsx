@@ -30,9 +30,9 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="py-24 px-6">
+    <section className="py-16 px-6">
       <div className="max-w-3xl mx-auto">
-        <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] text-white text-center mb-16">
+        <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] tracking-[-0.03em] text-white text-center mb-12">
           FAQ
         </h2>
 

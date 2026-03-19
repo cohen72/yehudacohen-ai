@@ -38,7 +38,7 @@ export default function Pricing() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 px-6" ref={ref}>
+    <section className="py-16 px-6" ref={ref}>
       <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
         {plans.map((plan, i) => (
           <motion.div
@@ -48,7 +48,7 @@ export default function Pricing() {
             transition={{ duration: 0.6, delay: i * 0.15 }}
             className={`rounded-2xl p-8 flex flex-col ${
               plan.featured
-                ? "bg-lime text-black md:-mt-4 md:py-12"
+                ? "bg-lime text-black md:-mt-6 md:py-14 neon-glow scale-[1.02]"
                 : `bg-card-dark border ${plan.border} text-white`
             }`}
           >

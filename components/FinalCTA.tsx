@@ -10,7 +10,7 @@ export default function FinalCTA() {
   return (
     <section
       ref={ref}
-      className="py-32 px-6 text-center"
+      className="py-24 px-6 text-center overflow-hidden"
       style={{
         background:
           "linear-gradient(180deg, #0a0a0a 0%, #1a0a2e 50%, #0a0a0a 100%)",
@@ -20,7 +20,7 @@ export default function FinalCTA() {
         initial={{ opacity: 0, y: 30 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
-        className="font-serif italic text-[clamp(3rem,8vw,6rem)] text-white mb-6"
+        className="font-serif italic text-[clamp(4rem,15vw,12rem)] leading-[0.85] tracking-[-0.04em] text-white mb-6"
       >
         Ready?
       </motion.h2>

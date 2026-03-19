@@ -16,7 +16,7 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-20 text-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-14 text-center">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -33,7 +33,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15 + i * 0.15 }}
-              className="block text-[clamp(3rem,10vw,7.5rem)] leading-[1.05] text-white"
+              className="block text-[clamp(3rem,10vw,7.5rem)] leading-[0.85] tracking-[-0.04em] text-white"
             >
               {i === 2 ? <em>{line}</em> : line}
             </motion.span>
@@ -44,7 +44,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-muted mt-8 max-w-lg mx-auto text-base"
+          className="text-muted mt-8 max-w-lg mx-auto text-lg"
         >
           Set up by a guy who got way too deep into this
           <br />

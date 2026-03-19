@@ -34,7 +34,7 @@ export default function Testimonials() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 px-6" ref={ref}>
+    <section className="py-16 px-6" ref={ref}>
       <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
         {testimonials.map((t, i) => (
           <motion.div

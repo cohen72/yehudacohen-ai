@@ -23,13 +23,13 @@ export default function MeetTheGuy() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 px-6" ref={ref}>
+    <section className="py-16 px-6" ref={ref}>
       <div className="max-w-4xl mx-auto border-l-4 border-lime pl-8 md:pl-12">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="font-serif italic text-[clamp(1.5rem,4vw,3rem)] leading-[1.2] text-white mb-10"
+          className="font-serif italic text-[clamp(1.5rem,4vw,3rem)] leading-[1.1] tracking-[-0.03em] text-white mb-10"
         >
           &ldquo;I don&rsquo;t fully know what I&rsquo;m doing, but I&rsquo;m
           doing it confidently and it keeps working.&rdquo;

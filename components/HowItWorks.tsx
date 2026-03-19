@@ -29,7 +29,7 @@ export default function HowItWorks() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 px-6" ref={ref}>
+    <section className="py-16 px-6" ref={ref}>
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-3 gap-6">
           {steps.map((step, i) => (
@@ -44,7 +44,7 @@ export default function HowItWorks() {
                 {step.num}
               </span>
               <div>
-                <h3 className="text-2xl font-bold mb-3">{step.title}</h3>
+                <h3 className="text-2xl font-bold mb-3 tracking-[-0.03em]">{step.title}</h3>
                 <p className="text-black/80">{step.desc}</p>
               </div>
             </motion.div>

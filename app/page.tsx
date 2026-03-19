@@ -11,6 +11,7 @@ import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
+import Marquee from "@/components/Marquee";
 
 export default function Home() {
   return (
@@ -21,14 +22,19 @@ export default function Home() {
       <section id="how-it-works">
         <HowItWorks />
       </section>
+      <hr className="section-divider" />
       <WhatItDoes />
+      <Marquee />
       <section id="about">
         <MeetTheGuy />
       </section>
+      <hr className="section-divider" />
       <section id="pricing">
         <Pricing />
       </section>
+      <hr className="section-divider" />
       <Testimonials />
+      <hr className="section-divider" />
       <section id="faq">
         <FAQ />
       </section>
