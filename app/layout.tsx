@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Caveat, Be_Vietnam_Pro } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
@@ -33,7 +34,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <style>{`.rv{opacity:1 !important;transform:none !important}`}</style>
         </noscript>
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
